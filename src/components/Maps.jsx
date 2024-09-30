@@ -1,12 +1,21 @@
 import { bgmiMaps } from "../constants"
+import { motion } from "framer-motion";
 
 const Maps = () => {
     return (
         <div id="maps" className="p-4 md:p-6 border-b">
-            <span className="block text-2xl md:text-3xl font-bold text-yellow-400 mb-4 text-center">
+            <motion.span 
+                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 100 }}
+                transition={{ duration: 1 }}
+                className="block text-2xl md:text-3xl font-bold text-yellow-400 mb-4 text-center">
             Classic Maps in BGMI
-            </span>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 p-4 md:p-6">
+            </motion.span>
+            <motion.div 
+                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: -100 }}
+                transition={{ duration: 1 }}
+                className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 p-4 md:p-6">
                 {bgmiMaps.map((bgmiMap, index) => (
                     <div key={index} className="relative rounded-lg shadow-lg overflow-hidden group">
                         <img
@@ -22,7 +31,7 @@ const Maps = () => {
                         </div>
                     </div>
                 ))}
-            </div>
+            </motion.div>
         </div>
     );
 }
